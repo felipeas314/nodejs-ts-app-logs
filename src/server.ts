@@ -1,8 +1,10 @@
 import "reflect-metadata";
+
+import './app/database/postgres';
+
 import express from 'express';
 import routes from './routes';
 
-import './app/database/postgres';
 
 const server = express();
 

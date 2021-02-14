@@ -4,7 +4,9 @@ import UserController from './app/controllers/UserController'
 
 const routes = Router();
 
-const userController = new UserController();
+
+setTimeout(() => {
+  const userController = new UserController();
 
 routes.get('/health',(req: Request, res: Response) => {
   res.status(200).json({
@@ -14,10 +16,10 @@ routes.get('/health',(req: Request, res: Response) => {
   })
 })
 
-routes.post('/users',(req: Request, res: Response) => {
-  userController.create(req,res);
-});
+routes.post('/users',(req,res) => userController.create(req,res));
 
 routes.post('/users')
+}, 2000);
+
 
 export default routes
