@@ -1,4 +1,8 @@
-import './app/database/postgres';
-import server from './server';
+// import './app/database/postgres';
+import Server from './server';
 
-server.listen(3000);
+const server = new Server();
+
+server.init().then(s => {
+  s.listen(3000);
+})

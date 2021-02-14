@@ -4,22 +4,23 @@ import UserController from './app/controllers/UserController'
 
 const routes = Router();
 
-
-setTimeout(() => {
+function route() {
+  
   const userController = new UserController();
 
-routes.get('/health',(req: Request, res: Response) => {
-  res.status(200).json({
-    message: 'Server UP!',
-    date: new Date(),
-    status: 'OK'
+  routes.get('/health', (req: Request, res: Response) => {
+    res.status(200).json({
+      message: 'Server UP!',
+      date: new Date(),
+      status: 'OK'
+    })
   })
-})
 
-routes.post('/users',(req,res) => userController.create(req,res));
+  routes.post('/users', (req, res) => userController.create(req, res));
 
-routes.post('/users')
-}, 2000);
+  routes.post('/users');
 
+  return routes;
+}
 
-export default routes
+export default route;
