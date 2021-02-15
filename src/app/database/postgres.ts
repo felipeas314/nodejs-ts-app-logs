@@ -7,9 +7,9 @@ import {createConnection} from "typeorm";
 async function connectionFactory(){
     try{
         await createConnection();
-        console.log('conectado ao banco de dados!!');
+        // console.log('conectado ao banco de dados--detectOpenHandles!!');
     } catch(err){
-        console.log(err);
+        // console.log(err);
     }
 }
 

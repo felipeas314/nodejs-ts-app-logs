@@ -7,26 +7,26 @@ import UserRole from '../enum/UserRole';
 export class User {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
     @IsDefined()
     @MinLength(6)
-    name: string;
+    name!: string;
 
     @Column()
-    email: string;
+    email!: string;
 
     @Column({
         type: "enum",
         enum: UserRole,
         default: UserRole.PEOPLE,
     })
-    role: UserRole
+    role!: UserRole;
 
     @Column({
-        name:"is_active"
+        name: "is_active"
     })
-    isActive: boolean;
+    isActive!: boolean;
 
 }
