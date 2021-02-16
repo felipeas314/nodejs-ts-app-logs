@@ -18,7 +18,7 @@ function route() {
 
   routes.post('/users', (req, res) => userController.create(req, res));
 
-  routes.post('/users');
+  routes.get('/users', (req,res) =>  userController.list(req, res));
 
   return routes;
 }

@@ -13,17 +13,29 @@ class UserController {
 
   public async create(req: Request, res: Response){
     // console.log(req.body);
-    await this.userRepository.create(req.body);
+    const user = await this.userRepository.create(req.body);
     
     res.status(201).json({
       message: 'User created',
       status: 'CREATED',
-      date: new Date()
+      date: new Date(),
+      content: user
     })
   }
 
   public async list(req: Request, res: Response){
 
+    let page: number = Number(req.query.page);
+    let quantity: number = Number(req.query.quantity);
+
+    const users = await this.userRepository.list(page,quantity);
+    
+    res.status(200).json({
+      message: 'List of users',
+      status: 'OK',
+      date: new Date(),
+      content: users
+    })
   }
   
 }
